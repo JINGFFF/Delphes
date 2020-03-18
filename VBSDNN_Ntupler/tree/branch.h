@@ -1,10 +1,13 @@
 // jet constituent values
-vector<float> pfcand_pt_log(30);
-vector<float> pfcand_phirel(30);
-vector<float> pfcand_etarel(30);
-vector<float> pfcand_e_log(30);
-int fj_isW, label_W_cq;
-float fj_pt, fj_sdmass_fromsubjets;
+vector<float> pfcand_pt_log(60);
+vector<float> pfcand_phirel(60);
+vector<float> pfcand_etarel(60);
+vector<float> pfcand_e_log(60);
+int fj_isW;
+int label_sig;
+int label_bkg;
+//float fj_pt;
+//float fj_sdmass_fromsubjets;
 
 //normal values
 double vbs_jet1_pt;
@@ -115,10 +118,11 @@ double electron2_pid;
 
 //initial
 void init(){
-    fj_isW                      = 0;
-    label_W_cq                  = 0;
-    fj_pt                       = gRandom->Gaus(500,10);
-    fj_sdmass_fromsubjets       = gRandom->Gaus(100,10);
+    fj_isW                      = 1;
+    label_sig                  	= 0;
+	label_bkg					= 1;
+    //fj_pt                       = gRandom->Gaus(500,10);
+    //fj_sdmass_fromsubjets       = gRandom->Gaus(100,10);
     for(int t=0;t<30;t++){
         pfcand_pt_log[t] = -10000;
         pfcand_phirel[t] = -10000;

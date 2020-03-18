@@ -12,9 +12,10 @@ void tree(){
 	tree->Branch("pfcand_phirel",&pfcand_phirel);
 	tree->Branch("pfcand_e_log",&pfcand_e_log);
 	tree->Branch("fj_isW",&fj_isW);
-	tree->Branch("fj_pt",&fj_pt);
-	tree->Branch("label_W_cq",&label_W_cq);
-	tree->Branch("fj_sdmass_fromsubjets",&fj_sdmass_fromsubjets);
+	//tree->Branch("fj_pt",&fj_pt);
+	tree->Branch("label_sig",&label_sig);
+    tree->Branch("label_bkg",&label_bkg);
+	//tree->Branch("fj_sdmass_fromsubjets",&fj_sdmass_fromsubjets);
 
 	tree->Branch("vbs_jet1_pt",&vbs_jet1_pt);
 	tree->Branch("vbs_jet1_eta",&vbs_jet1_eta);
@@ -94,7 +95,7 @@ void tree(){
 	    	    	if(object1 == 0) {/*cout<<"0"<<endl;*/ continue;}
 	    	    	if(object1->IsA() == GenParticle::Class()){
 	            		particle1 = (GenParticle*) object1;
-		    			if(j1c<15){
+		    			if(j1c<30){
 	            	    	pfcand_pt_log[j1c] = log10(particle1->PT);
         	    	    	pfcand_phirel[j1c] = particle1->Phi;
             	    		pfcand_etarel[j1c] = particle1->Eta;
@@ -119,11 +120,11 @@ void tree(){
             	    if(object2 == 0) {/*cout<<"0"<<endl;*/ continue;}
             	    if(object2->IsA() == GenParticle::Class()){
                 		particle2 = (GenParticle*) object2;
-                		if(j2c<15){ 
-                    	    pfcand_pt_log[j2c+15] = log10(particle2->PT);
-                       	    pfcand_phirel[j2c+15] = particle2->Phi;
-                    	    pfcand_etarel[j2c+15] = particle2->Eta;
-                       	    pfcand_e_log[j2c+15]  = log10(particle2->E);
+                		if(j2c<30){ 
+                    	    pfcand_pt_log[j2c+30] = log10(particle2->PT);
+                       	    pfcand_phirel[j2c+30] = particle2->Phi;
+                    	    pfcand_etarel[j2c+30] = particle2->Eta;
+                       	    pfcand_e_log[j2c+30]  = log10(particle2->E);
                 		}
                 		j2c++;
             	    }
